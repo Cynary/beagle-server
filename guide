@@ -1,0 +1,55 @@
+Setup and download:
+http://archlinuxarm.org/platforms/armv7/ti/beagleboard
+You need to install uboot-mkimage
+
+Network configuration:
+(DNS for MIT networks) https://wiki.archlinux.org/index.php/resolv.conf#Preserve_DNS_settings
+(Static IP config) https://wiki.archlinux.org/index.php/Network_Configuration#Static_IP_address
+Check network_config for files
+
+update repositories:
+packer -Syu
+
+Packages to install:
+emacs-nox
+screen
+openssh 
+sudo
+git
+apache
+vsftpd
+mlocate
+wget
+screen
+
+Create group web:
+groupadd web
+
+Make it own http/ftp
+chgrp web /srv/
+chgrp web /srv/*
+chmod g+w /srv/http
+
+Add user:
+useradd -m -G audio,ftp,lp,ntp,power,storage,video,wheel,web $USER
+Setup SUDO (visudo, allow wheel group)
+create password
+
+Change root password
+
+Setup SSH:
+https://wiki.archlinux.org/index.php/Secure_Shell#Installing_OpenSSH
+Config file in ssh
+Setup vsftpd:
+https://wiki.archlinux.org/index.php/Very_Secure_FTP_Daemon
+Config file in ftp
+
+Up to here, there is an image of all of it.
+
+============
+Pulseaudio
+============
+There is some issue with crackling.
+It is really really annoying and it seems like I couldn't find a solution to it.
+https://wiki.archlinux.org/index.php/Raspberry_Pi#Audio
+http://manurevah.com/blah/en/p/PulseAudio-Sound-over-the-network

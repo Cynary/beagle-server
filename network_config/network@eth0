@@ -1,0 +1,4 @@
+address=18.239.0.98
+netmask=16
+broadcast=18.239.255.255
+gateway=18.239.0.1
