@@ -8,7 +8,7 @@ Network configuration:
 Check network_config for files
 
 update repositories:
-packer -Syu
+pacman -Syu
 
 Packages to install:
 emacs-nox
@@ -21,6 +21,7 @@ vsftpd
 mlocate
 wget
 screen
+pacman -S --needed base-devel
 
 Create group web:
 groupadd web
